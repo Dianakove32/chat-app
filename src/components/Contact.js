@@ -1,20 +1,21 @@
 import React from 'react';
 import './Chat.css'
 
-function Contact(){
-    const name = 'Miriam Shelton';
-    const avatar = 'https://randomuser.me/api/portraits/women/7.jpg';
-    let isOnline = true;
+function Contact(props) {
+
     return (
         <div className='Contact'>
-            <img className='avatar' alt='pict' src={avatar}/>
+
+            <img className='avatar'
+                src={props.avatar}
+           />
             <div>
                 <p className='name'>
-                    {name}
+                    {props.name}
                 </p>
                 <div className='status'>
-                <span className='status-online'></span>
-                <p className='status-text'>    {isOnline ? "Online" : "Offline"}</p>
+                    <span className={props.online ? 'status-online' : 'status-offline'}></span>
+                    <p className='status-text'> {props.online ? 'online' : 'offline'}</p>
                 </div>
 
             </div>
