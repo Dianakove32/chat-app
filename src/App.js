@@ -5,7 +5,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-     <Contact />
+     <Contact name= {'Miriam Shelton' }
+     avatar = { 'https://randomuser.me/api/portraits/women/7.jpg '} />
     </div>
   );
 }

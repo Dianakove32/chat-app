@@ -1,24 +1,38 @@
-import React from 'react';
+import React  from 'react';
+
 import './Chat.css'
 
-function Contact(){
-    const name = 'Miriam Shelton';
-    const avatar = 'https://randomuser.me/api/portraits/women/7.jpg';
-    let isOnline = true;
-    return (
+class  Contact extends  React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+         isOnline:false
+        }
+    }
+    // const name = 'Miriam Shelton';
+    // const avatar = 'https://randomuser.me/api/portraits/women/7.jpg';
+
+    render() {
+ return (
+
         <div className='Contact'>
-            <img className='avatar' alt='pict' src={avatar}/>
+            <img className='avatar' alt='pict' src={this.props.avatar}/>
             <div>
                 <p className='name'>
-                    {name}
+                    {this.props.name}
                 </p>
-                <div className='status'>
-                <span className='status-online'></span>
-                <p className='status-text'>    {isOnline ? "Online" : "Offline"}</p>
+                <div className='status' onClick={(event)=>{
+                    const active = !this.state.isOnline
+                    this.setState({isOnline:active}) }}>
+                <span className={this.state.isOnline?'status-online':  'status-offline' }
+               ></span>
+                 <p className='status-text'>    {this.state.isOnline ? "Online" : "Offline"}</p>
                 </div>
 
             </div>
         </div>
     )
+    }
+
 }
 export default Contact;
